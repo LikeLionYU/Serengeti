@@ -5,12 +5,15 @@ const question = document.querySelector('#question');
 const type = document.querySelector('#type');
 const aBtn = document.querySelector("#a");
 const bBtn = document.querySelector('#b');
-const EI = document.querySelector('#EI');
-const SN = document.querySelector('#SN');
-const TF = document.querySelector("#TF");
-const JS = document.querySelector("#JP");
+
+// St1~5 : 학년
+const St1 = document.querySelector('#St1');
+const St2 = document.querySelector('#St2');
+const St3 = document.querySelector("#St3");
+const St4 = document.querySelector("#St4");
+const St5 = document.querySelector("#St5");
 const pro = document.querySelector('.progress-bar');
-const MBTI = document.querySelector('#mbti');
+const ONresult = document.querySelector('#ONresult');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
@@ -19,43 +22,90 @@ const resultContainer = document.querySelector('.result-container');
 const q = {
     1: {
         "title": "문제 1번",
-        "type": "EI",
-        "A": "E",
-        "B": "I"
+        "content": "뒷푸영을 가봤다",
+        "A": "O",
+        "B": "N"
+        // o : old / n : new
     },
-    2: { "title": "문제 2번", "type": "EI", "A": "E", "B": "I" },
-    3: { "title": "문제 3번", "type": "EI", "A": "E", "B": "I" },
-    4: { "title": "문제 4번", "type": "SN", "A": "S", "B": "N" },
-    5: { "title": "문제 5번", "type": "SN", "A": "S", "B": "N" },
-    6: { "title": "문제 6번", "type": "SN", "A": "S", "B": "N" },
-    7: { "title": "문제 7번", "type": "TF", "A": "T", "B": "F" },
-    8: { "title": "문제 8번", "type": "TF", "A": "T", "B": "F" },
-    9: { "title": "문제 9번", "type": "TF", "A": "T", "B": "F" },
-    10: { "title": "문제 10번", "type": "JP", "A": "J", "B": "P" },
-    11: { "title": "문제 11번", "type": "JP", "A": "J", "B": "P" },
-    12: { "title": "문제 12번", "type": "JP", "A": "J", "B": "P" }
+    2: { "title": "문제 2번", 
+    "content": "대체번호 입력을 통해 출결을 해봤다", 
+    "A": "O",
+    "B": "N"},
+    3: { "title": "문제 3번", 
+    "content": "마스크를 안 낀 홍만이를 본 적이 있다",
+    "A": "O",
+    "B": "N"},
+    4: { "title": "문제 4번", 
+    "content": "교’외’셔틀을 탑승해봤다",
+    "A": "O",
+    "B": "N"},
+    5: { "title": "문제 5번", 
+    "content": " 불야돈을 먹어봤다",
+    "A": "O",
+    "B": "N"},
+    6: { "title": "문제 6번", 
+    "content": "학교 축제에서 싸이를 본 횟수는?",
+    "A": "O",
+    "B": "N"},
+    7: { "title": "문제 7번", 
+    "content": "카페 마운틴(a.k.a 산다방)을 안다",
+    "A": "O",
+    "B": "N"},
+    8: { "title": "문제 8번", 
+    "content": "새내기 엠티를 가봤다",
+    "A": "O",
+    "B": "N"},
+    9: { "title": "문제 9번", 
+    "content": "동아리 가두모집을 당해봤다",
+    "A": "O",
+    "B": "N"},
+    10: { "title": "문제 10번", 
+    "content": "축제 주막에서 파는 술을 먹어봤다",
+    "A": "O",
+    "B": "N"},
+    11: { "title": "문제 11번", 
+    "content": "프잉, 아잉 수업을 하기 전 건물 1층의 핫도그집에서 핫도그를 먹어봤다",
+    "A": "O",
+    "B": "N"},
+    12: { "title": "문제 12번", 
+    "content": "중도 뒤 삼거리의, 삼각표지판에 그려진 모양으로 알맞은 것은?",
+    "A": "O",
+    "B": "N"},
+    13: { "title": "문제 12번", 
+    "content": "브라운그릴을 안다?",
+    "A": "O",
+    "B": "N"},
+    14: { "title": "문제 12번", 
+    "content": "3학년부터는 동아리 신규 가입이 불가한 것이 너무하다고 생각된다",
+    "A": "O",
+    "B": "N"},
+    15: { "title": "문제 12번", 
+    "content": "영남대역이 없어 사월역에 내려서 셔틀을 타고 학교에 온 적이 있다",
+    "A": "O",
+    "B": "N"},
+    16: { "title": "문제 12번", 
+    "content": "나는 학교에 갈 때 과잠을 자주 입는다",
+    "A": "O",
+    "B": "N"}
 }
 const result = {
-    "ISTJ": {
-        "animal": "하마",
-        "explain": "하마 설명",
+    "first_grade": {
+        "person": "아무것도 모르는 순수한 새내기",
+        "explain": "캠퍼스라이프를 막 시작하면서 캠퍼스의 풍경들, 사람들, 교수님들, 강의실, 축제, 동아리 모든 게 신기해요! 영남대는 왜 이렇게 큰지 길을 헤매다가 지도를 보고 강의실에 겨우 도착하기도 했구요. 입고싶은 옷도 마음껏 입고, 술도 마음껏 마실거예요!",
         "img": "lion.jpg"
     },
-    "ISFJ": { "animal": "부엉이", "explain": "부엉이 설명", "img": "lion.jpg" },
-    "INFJ": { "animal": "물소", "explain": "물소 설명", "img": "lion.jpg" },
-    "INTJ": { "animal": "치타", "explain": "치타 설명", "img": "lion.jpg" },
-    "ISTP": { "animal": "나무늘보", "explain": "나무늘보 설명", "img": "lion.jpg" },
-    "ISFP": { "animal": "거북이", "explain": "거북이 설명", "img": "lion.jpg" },
-    "INFP": { "animal": "코끼리", "explain": "코끼리 설명", "img": "lion.jpg" },
-    "INTP": { "animal": "침팬지", "explain": "침팬지 설명", "img": "lion.jpg" },
-    "ESTP": { "animal": "악어", "explain": "악어 설명", "img": "lion.jpg" },
-    "ESFP": { "animal": "미어캣", "explain": "미어캣 설명", "img": "lion.jpg" },
-    "ENFP": { "animal": "멋쟁이 사자", "explain": "멋쟁이 사자 설명", "img": "lion.jpg" },
-    "ENTP": { "animal": "태양새", "explain": "태양새 설명", "img": "lion.jpg" },
-    "ESTJ": { "animal": "기린", "explain": "기린 설명", "img": "lion.jpg" },
-    "ESFJ": { "animal": "고릴라", "explain": "고릴라 설명", "img": "lion.jpg" },
-    "ENFJ": { "animal": "카피바라", "explain": "카피바라 설명", "img": "lion.jpg" },
-    "ENTJ": { "animal": "호랑이", "explain": "호랑이 설명", "img": "lion.jpg" }
+    "second_grade": { "person": "조금씩 적응해가는 영대인",
+     "explain": "대학교에 들어와서 캠퍼스 라이프에 점점 적응해가고 있어요. 이젠 눈 감고도 강의실을 찾아갈 수 있을 것 같아요! 캠퍼스에 대한 환상도 점점 걷혀가지만 우리에겐 종강이 있으니까요.",
+      "img": "lion.jpg" },
+    "third_grade": { "person": "아무것도 모르는 뉴비가 귀여운 고학년 학교 시설을 통달하신 당신",
+     "explain": "분명 영남대가 되게 크게 느껴졌는데 지금은 그렇게 큰 것 같지도 않아요. 내가 영남대에서 필요한 것이 어디에 있는지 다 파악하고 있으니까요. 오늘도 옷은 최대한 편하게 입고, 모자도 푹 눌러쓰고 학교를 가요. 혹시 과잠에 대한 미련도 점점 사라져가고 있진 않으신가요?",
+      "img": "lion.jpg" },
+    "fourth_grade": { "person": "모든 것을 통달한 올드비",
+     "explain": "나는 가만히 학교다닌 죄밖에 없는데 사람들이 나를 화석이라 부르기 시작해서 속상해요. 학년만 높지 아직 어린데 동아리 모집에 저는 부르지 않아서 속상해요.",
+      "img": "lion.jpg" },
+    "fifth_grade": { "person": "캠퍼스의 역사를 경험한 화석",
+     "explain": "영대에 많은 것이 사라지고 생기는 것을 두 눈으로 본 당신. 혹시 학번을 말했을 때 주변사람들이 다들 놀라지 않던가요?",
+      "img": "lion.jpg" }
 }
 
 

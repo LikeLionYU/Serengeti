@@ -14,7 +14,6 @@ body {
 
 .title-container {
     margin: auto;
-    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,12 +21,28 @@ body {
 }
 
 .question-container {
-    display: none;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
 }
 
 .btn {
-    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
+    border: ipx;
+    border-radius: 5px;
+    border-color: #707070;
+    background-color: white;
+    color: #707070;
+    width: 15rem;
+    height: 5rem;
+}
+
+.btn:hover {
+    background-color: #00387A;
+    color: white;
 }
 
 .score-container {
@@ -35,11 +50,13 @@ body {
     display: flex;
     flex-direction: column;
     bottom: 5%;
-    display: none;
+    /* display: none; */
 }
 
 .result-container {
-    display: none;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
 }
 
 #result-img {
@@ -47,5 +64,5 @@ body {
 }
 
 #type {
-    display: none;
+    /* display: none; */
 }
