@@ -6,87 +6,84 @@ const type = document.querySelector('#type');
 const aBtn = document.querySelector("#a");
 const bBtn = document.querySelector('#b');
 
-// St1~5 : 학년
-const St1 = document.querySelector('#St1');
-const St2 = document.querySelector('#St2');
-const St3 = document.querySelector("#St3");
-const St4 = document.querySelector("#St4");
-const St5 = document.querySelector("#St5");
+
+const oldbie = document.querySelector('#oldbie');
+const newbie = document.querySelector('#newbie');
+
 const pro = document.querySelector('.progress-bar');
 const ONresult = document.querySelector('#ONresult');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
 
-
 const q = {
     1: {
         "title": "문제 1번",
         "content": "뒷푸영을 가봤다",
-        "A": "O",
-        "B": "N"
+        "A": "oldbie",
+        "B": "newbie"
         // o : old / n : new
     },
     2: { "title": "문제 2번", 
     "content": "대체번호 입력을 통해 출결을 해봤다", 
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     3: { "title": "문제 3번", 
     "content": "마스크를 안 낀 홍만이를 본 적이 있다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     4: { "title": "문제 4번", 
     "content": "교’외’셔틀을 탑승해봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     5: { "title": "문제 5번", 
     "content": " 불야돈을 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     6: { "title": "문제 6번", 
-    "content": "학교 축제에서 싸이를 본 횟수는?",
-    "A": "O",
-    "B": "N"},
+    "content": "학교 축제에서 싸이를 본 적이 있다.",
+    "A": "oldbie",
+    "B": "newbie"},
     7: { "title": "문제 7번", 
     "content": "카페 마운틴(a.k.a 산다방)을 안다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     8: { "title": "문제 8번", 
     "content": "새내기 엠티를 가봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     9: { "title": "문제 9번", 
     "content": "동아리 가두모집을 당해봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     10: { "title": "문제 10번", 
     "content": "축제 주막에서 파는 술을 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     11: { "title": "문제 11번", 
     "content": "프잉, 아잉 수업을 하기 전 건물 1층의 핫도그집에서 핫도그를 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     12: { "title": "문제 12번", 
-    "content": "중도 뒤 삼거리의, 삼각표지판에 그려진 모양으로 알맞은 것은?",
-    "A": "O",
-    "B": "N"},
-    13: { "title": "문제 12번", 
+    "content": "영남대 학생지원센터 가는 길에는 '행복 Start'라는 표지판이 있다.",
+    "A": "oldbie",
+    "B": "newbie"},
+    13: { "title": "문제 13번", 
     "content": "브라운그릴을 안다?",
-    "A": "O",
-    "B": "N"},
-    14: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    14: { "title": "문제 14번", 
     "content": "3학년부터는 동아리 신규 가입이 불가한 것이 너무하다고 생각된다",
-    "A": "O",
-    "B": "N"},
-    15: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    15: { "title": "문제 15번", 
     "content": "영남대역이 없어 사월역에 내려서 셔틀을 타고 학교에 온 적이 있다",
-    "A": "O",
-    "B": "N"},
-    16: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    16: { "title": "문제 16번", 
     "content": "나는 학교에 갈 때 과잠을 자주 입는다",
-    "A": "O",
-    "B": "N"}
+    "A": "newbie",
+    "B": "oldbie"}
 }
 const result = {
     "first_grade": {
@@ -121,44 +118,42 @@ titleBtn.addEventListener('click', () => {
 
 aBtn.addEventListener('click', () => {
     switch (type.innerHTML) {
-        case 'first_grade':
-            let e = parseInt(EI.value);
-            EI.setAttribute('value', e + 1);
+        case 'oldbie':
+            let o = parseInt(oldbie.value);
+            oldbie.setAttribute('value', o + 1);
             break;
-        case 'second_grade':
-            let s = parseInt(SN.value);
-            SN.setAttribute('value', s + 1);
-            break;
-        case 'third_grade':
-            let t = parseInt(TF.value);
-            TF.setAttribute('value', t + 1);
-            break;
-        case 'fourth_grade':
-            let j = parseInt(JP.value);
-            JP.setAttribute('value', j + 1);
-            break;
-        case 'fifth_grade':
-            let a = parseInt(JP.value);
-            JP.setAttribute('value', a + 1);
+        case 'newbie':
+            let n = parseInt(newbie.value);
+            newbie.setAttribute('value', n + 1);
             break;
     }
     updateQuestion();
 });
 
 bBtn.addEventListener('click', () => {
+    switch (type.innerHTML) {
+        case 'oldbie':
+            let o = parseInt(oldbie.value);
+            oldbie.setAttribute('value', o + 1);
+            break;
+        case 'newbie':
+            let n = parseInt(newbie.value);
+            newbie.setAttribute('value', n + 1);
+            break;
+    }
     updateQuestion();
 });
 
 function updateQuestion() {
-    if (num == 13) {
+    if (num == 16) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
 
     }
     else {
-        // pro.setAttribute();
+        pro.setAttribute('style', `width : calc(100/16*${num}%`);
         question.innerHTML = q[num].title;
-        type.innerHTML = q[num].type;
+        type.innerHTML = q[num].content;
         aBtn.innerHTML = q[num].A;
         bBtn.innerHTML = q[num].B;
         num++;
