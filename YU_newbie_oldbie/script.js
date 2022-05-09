@@ -6,106 +6,103 @@ const type = document.querySelector('#type');
 const aBtn = document.querySelector("#a");
 const bBtn = document.querySelector('#b');
 
-// St1~5 : 학년
-const St1 = document.querySelector('#St1');
-const St2 = document.querySelector('#St2');
-const St3 = document.querySelector("#St3");
-const St4 = document.querySelector("#St4");
-const St5 = document.querySelector("#St5");
+
+const oldbie = document.querySelector('#oldbie');
+const newbie = document.querySelector('#newbie');
+
 const pro = document.querySelector('.progress-bar');
 const ONresult = document.querySelector('#ONresult');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
 
-
 const q = {
     1: {
         "title": "문제 1번",
         "content": "뒷푸영을 가봤다",
-        "A": "O",
-        "B": "N"
+        "A": "oldbie",
+        "B": "newbie"
         // o : old / n : new
     },
     2: { "title": "문제 2번", 
     "content": "대체번호 입력을 통해 출결을 해봤다", 
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     3: { "title": "문제 3번", 
     "content": "마스크를 안 낀 홍만이를 본 적이 있다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     4: { "title": "문제 4번", 
     "content": "교’외’셔틀을 탑승해봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     5: { "title": "문제 5번", 
     "content": " 불야돈을 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     6: { "title": "문제 6번", 
-    "content": "학교 축제에서 싸이를 본 횟수는?",
-    "A": "O",
-    "B": "N"},
+    "content": "학교 축제에서 싸이를 본 적이 있다.",
+    "A": "oldbie",
+    "B": "newbie"},
     7: { "title": "문제 7번", 
     "content": "카페 마운틴(a.k.a 산다방)을 안다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     8: { "title": "문제 8번", 
     "content": "새내기 엠티를 가봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     9: { "title": "문제 9번", 
     "content": "동아리 가두모집을 당해봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     10: { "title": "문제 10번", 
     "content": "축제 주막에서 파는 술을 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     11: { "title": "문제 11번", 
     "content": "프잉, 아잉 수업을 하기 전 건물 1층의 핫도그집에서 핫도그를 먹어봤다",
-    "A": "O",
-    "B": "N"},
+    "A": "oldbie",
+    "B": "newbie"},
     12: { "title": "문제 12번", 
-    "content": "중도 뒤 삼거리의, 삼각표지판에 그려진 모양으로 알맞은 것은?",
-    "A": "O",
-    "B": "N"},
-    13: { "title": "문제 12번", 
+    "content": "영남대 학생지원센터 가는 길에는 '행복 Start'라는 표지판이 있다.",
+    "A": "oldbie",
+    "B": "newbie"},
+    13: { "title": "문제 13번", 
     "content": "브라운그릴을 안다?",
-    "A": "O",
-    "B": "N"},
-    14: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    14: { "title": "문제 14번", 
     "content": "3학년부터는 동아리 신규 가입이 불가한 것이 너무하다고 생각된다",
-    "A": "O",
-    "B": "N"},
-    15: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    15: { "title": "문제 15번", 
     "content": "영남대역이 없어 사월역에 내려서 셔틀을 타고 학교에 온 적이 있다",
-    "A": "O",
-    "B": "N"},
-    16: { "title": "문제 12번", 
+    "A": "oldbie",
+    "B": "newbie"},
+    16: { "title": "문제 16번", 
     "content": "나는 학교에 갈 때 과잠을 자주 입는다",
-    "A": "O",
-    "B": "N"}
+    "A": "newbie",
+    "B": "oldbie"}
 }
 const result = {
     "first_grade": {
         "person": "아무것도 모르는 순수한 새내기",
         "explain": "캠퍼스라이프를 막 시작하면서 캠퍼스의 풍경들, 사람들, 교수님들, 강의실, 축제, 동아리 모든 게 신기해요! 영남대는 왜 이렇게 큰지 길을 헤매다가 지도를 보고 강의실에 겨우 도착하기도 했구요. 입고싶은 옷도 마음껏 입고, 술도 마음껏 마실거예요!",
-        "img": "lion.jpg"
+        "img": "first_grade.png"
     },
     "second_grade": { "person": "조금씩 적응해가는 영대인",
      "explain": "대학교에 들어와서 캠퍼스 라이프에 점점 적응해가고 있어요. 이젠 눈 감고도 강의실을 찾아갈 수 있을 것 같아요! 캠퍼스에 대한 환상도 점점 걷혀가지만 우리에겐 종강이 있으니까요.",
-      "img": "lion.jpg" },
+      "img": "second_grade.jpg" },
     "third_grade": { "person": "아무것도 모르는 뉴비가 귀여운 고학년 학교 시설을 통달하신 당신",
      "explain": "분명 영남대가 되게 크게 느껴졌는데 지금은 그렇게 큰 것 같지도 않아요. 내가 영남대에서 필요한 것이 어디에 있는지 다 파악하고 있으니까요. 오늘도 옷은 최대한 편하게 입고, 모자도 푹 눌러쓰고 학교를 가요. 혹시 과잠에 대한 미련도 점점 사라져가고 있진 않으신가요?",
-      "img": "lion.jpg" },
+      "img": "thirth.png"},
     "fourth_grade": { "person": "모든 것을 통달한 올드비",
      "explain": "나는 가만히 학교다닌 죄밖에 없는데 사람들이 나를 화석이라 부르기 시작해서 속상해요. 학년만 높지 아직 어린데 동아리 모집에 저는 부르지 않아서 속상해요.",
-      "img": "lion.jpg" },
+      "img": "fourth.png" },
     "fifth_grade": { "person": "캠퍼스의 역사를 경험한 화석",
      "explain": "영대에 많은 것이 사라지고 생기는 것을 두 눈으로 본 당신. 혹시 학번을 말했을 때 주변사람들이 다들 놀라지 않던가요?",
-      "img": "lion.jpg" }
+      "img": "fifth_grade.jpg" }
 }
 
 
@@ -121,40 +118,42 @@ titleBtn.addEventListener('click', () => {
 
 aBtn.addEventListener('click', () => {
     switch (type.innerHTML) {
-        case 'EI':
-            let e = parseInt(EI.value);
-            EI.setAttribute('value', e + 1);
+        case 'oldbie':
+            let o = parseInt(oldbie.value);
+            oldbie.setAttribute('value', o + 1);
             break;
-        case 'SN':
-            let s = parseInt(SN.value);
-            SN.setAttribute('value', s + 1);
-            break;
-        case 'TF':
-            let t = parseInt(TF.value);
-            TF.setAttribute('value', t + 1);
-            break;
-        case 'JP':
-            let j = parseInt(JP.value);
-            JP.setAttribute('value', j + 1);
+        case 'newbie':
+            let n = parseInt(newbie.value);
+            newbie.setAttribute('value', n + 1);
             break;
     }
     updateQuestion();
 });
 
 bBtn.addEventListener('click', () => {
+    switch (type.innerHTML) {
+        case 'oldbie':
+            let o = parseInt(oldbie.value);
+            oldbie.setAttribute('value', o + 1);
+            break;
+        case 'newbie':
+            let n = parseInt(newbie.value);
+            newbie.setAttribute('value', n + 1);
+            break;
+    }
     updateQuestion();
 });
 
 function updateQuestion() {
-    if (num == 13) {
+    if (num == 16) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
 
     }
     else {
-        // pro.setAttribute();
+        pro.setAttribute('style', `width : calc(100/16*${num}%`);
         question.innerHTML = q[num].title;
-        type.innerHTML = q[num].type;
+        type.innerHTML = q[num].content;
         aBtn.innerHTML = q[num].A;
         bBtn.innerHTML = q[num].B;
         num++;
