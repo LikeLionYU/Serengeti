@@ -71,9 +71,6 @@ const result = {
     25:{"person":"25%", "explain":"당신은 25% 쿨남, 쿨녀입니다"},//3~5
     0:{"person":"0%", "explain":"당신은 0% 쿨남, 쿨녀입니다"}//0~2
 }
-
-//let qNum; 현재 문제번호
-
 let num = 1;
 
 titleBtn.addEventListener('click', () => {
@@ -127,11 +124,13 @@ function updateQuestion() {
     }
     else { // 수정 필요
         // pro.setAttribute();
+        qnum.innerHTML = num/15;
         question.innerHTML = q[num].title;
         body.innerHTML = q[num].body;
         aBtn.innerHTML = q[num].A;
         bBtn.innerHTML = q[num].B;
         num++;
+        
     }
 }
 
