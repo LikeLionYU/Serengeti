@@ -20,8 +20,8 @@ body {
 
 .title-container {
 
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 3vw;
+    margin-right: 3vw;
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
@@ -35,8 +35,8 @@ body {
   background-color: none;
   text-align: left;
   padding: 39px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .btn {
@@ -81,6 +81,7 @@ body {
     border-width: 0px;
     width: 430px; 
     height: 60px;
+    text-align: center;
 }
 
 
