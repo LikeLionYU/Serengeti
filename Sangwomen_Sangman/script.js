@@ -1,112 +1,107 @@
-const titleContainer = document.querySelector(".title-container");
-const titleBtn = document.querySelector("#startBtn");
-const questionContainer = document.querySelector('.question-container');
-const question = document.querySelector('#question');
-const type = document.querySelector('#type');
-const aBtn = document.querySelector("#a");
-const bBtn = document.querySelector('#b');
-const EI = document.querySelector('#EI');
-const SN = document.querySelector('#SN');
-const TF = document.querySelector("#TF");
-const JS = document.querySelector("#JP");
-const pro = document.querySelector('.progress-bar');
-const MBTI = document.querySelector('#mbti');
-const explain = document.querySelector('#explain');
-const image = document.querySelector('#result-img');
-const resultContainer = document.querySelector('.result-container');
+const titleContainer = document.querySelectorAll(".start, .input");
+const titleBtn = document.querySelector(".info")
+const questionContainer = document.querySelector(".question_container");
+const question = document.querySelector('.question_logo');
+const contents = document.querySelector('#question');
+const type = document.querySelector("#type");
+const yBtn = document.querySelector(".answer-1_btn");
+const nBtn = document.querySelector('.answer-2_btn');
+const resultContainer = document.querySelector(".end_question");
+const resultType = document.querySelector(".result_show");
+const image = document.querySelector(".result_img");
+const explain = document.querySelector(".explain");
+const progress = document.querySelector('.progress-bar');
 
-
-const q = {
-    1: {
-        "title": "문제 1번",
-        "type": "EI",
-        "A": "E",
-        "B": "I"
-    },
-    2: { "title": "문제 2번", "type": "EI", "A": "E", "B": "I" },
-    3: { "title": "문제 3번", "type": "EI", "A": "E", "B": "I" },
-    4: { "title": "문제 4번", "type": "SN", "A": "S", "B": "N" },
-    5: { "title": "문제 5번", "type": "SN", "A": "S", "B": "N" },
-    6: { "title": "문제 6번", "type": "SN", "A": "S", "B": "N" },
-    7: { "title": "문제 7번", "type": "TF", "A": "T", "B": "F" },
-    8: { "title": "문제 8번", "type": "TF", "A": "T", "B": "F" },
-    9: { "title": "문제 9번", "type": "TF", "A": "T", "B": "F" },
-    10: { "title": "문제 10번", "type": "JP", "A": "J", "B": "P" },
-    11: { "title": "문제 11번", "type": "JP", "A": "J", "B": "P" },
-    12: { "title": "문제 12번", "type": "JP", "A": "J", "B": "P" }
-}
-const result = {
-    "ISTJ": {
-        "animal": "하마",
-        "explain": "하마 설명",
-        "img": "lion.jpg"
-    },
-    "ISFJ": { "animal": "부엉이", "explain": "부엉이 설명", "img": "lion.jpg" },
-    "INFJ": { "animal": "물소", "explain": "물소 설명", "img": "lion.jpg" },
-    "INTJ": { "animal": "치타", "explain": "치타 설명", "img": "lion.jpg" },
-    "ISTP": { "animal": "나무늘보", "explain": "나무늘보 설명", "img": "lion.jpg" },
-    "ISFP": { "animal": "거북이", "explain": "거북이 설명", "img": "lion.jpg" },
-    "INFP": { "animal": "코끼리", "explain": "코끼리 설명", "img": "lion.jpg" },
-    "INTP": { "animal": "침팬지", "explain": "침팬지 설명", "img": "lion.jpg" },
-    "ESTP": { "animal": "악어", "explain": "악어 설명", "img": "lion.jpg" },
-    "ESFP": { "animal": "미어캣", "explain": "미어캣 설명", "img": "lion.jpg" },
-    "ENFP": { "animal": "멋쟁이 사자", "explain": "멋쟁이 사자 설명", "img": "lion.jpg" },
-    "ENTP": { "animal": "태양새", "explain": "태양새 설명", "img": "lion.jpg" },
-    "ESTJ": { "animal": "기린", "explain": "기린 설명", "img": "lion.jpg" },
-    "ESFJ": { "animal": "고릴라", "explain": "고릴라 설명", "img": "lion.jpg" },
-    "ENFJ": { "animal": "카피바라", "explain": "카피바라 설명", "img": "lion.jpg" },
-    "ENTJ": { "animal": "호랑이", "explain": "호랑이 설명", "img": "lion.jpg" }
+const q = { // question Object 
+    1 : {"title" : "질문 1", "contents" : "휴대폰 케이스 안하고 다님", "type" : "char", "Y" : "네", "N" : "아니오"},
+    2 : {"title" : "질문 2", "contents" : "술 마실 때 컨디션 안 마심", "type" : "char", "Y" : "네", "N" : "아니오"},
+    3 : {"title" : "질문 3", "contents" : "추워도 자켓 안 입음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    4 : {"title" : "질문 4", "contents" : "음식점에서 쿠폰 안 받음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    5 : {"title" : "질문 5", "contents" : "배민 리뷰이벤트 참여 안함", "type" : "char", "Y" : "네", "N" : "아니오"},
+    6 : {"title" : "질문 6", "contents" : "카드 안 쓰고 현금 씀. 그리고 거스름돈 안 받음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    7 : {"title" : "질문 7", "contents" : "약속 늦어도 걸어감", "type" : "char", "Y" : "네", "N" : "아니오"},
+    8 : {"title" : "질문 8", "contents" : "라면 먹을 때 앞접시 안씀", "type" : "char", "Y" : "네", "N" : "아니오"},
+    9 : {"title" : "질문 9", "contents" : "밥상에 고기 없으면 안 먹음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    10 : {"title" : "질문 10", "contents" : "피곤하면 아무데서나 잠. 주차장에서도 잘 수 있음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    11 : {"title" : "질문 11", "contents" : "메뚜기 100가지 종류를 알고 있음", "type" : "char", "Y" : "네", "N" : "아니오"},
+    12 : {"title" : "질문 12", "contents" : "길 몰라도 지도앱 절대 안 켬", "type" : "char", "Y" : "네", "N" : "아니오"},
+    13 : {"title" : "질문 13", "contents" : "유자차에 휘핑크림 추가해서 마심", "type" : "char", "Y" : "네", "N" : "아니오"}
 }
 
+const result = { // 최종적으로 gender 추가해야 함
+    "upper": {"pos": "상", "explain": "#", "img": "#"},
+    "middle": {"pos": "중", "explain": "#", "img": "#"},
+    "lower": {"pos": "하", "explain": "#", "img": "#"}
+}
 
-let num = 1;
+let num = 1; // 질문 횟수 카운트
+let countYes = 0; // yes 대답 횟수 저장 변수
+let name;
+let gender; 
 
-// 여기까지만 사전 제공
+function start() {
+    if (info.name.value == "") {
+        alert("이름을 작성해주세요.")
+        return
+    } else if (info.gender[0].checked == false && info.gender[1].checked == false) {
+        alert("성별을 선택해주세요.");
+        return
+    } else {
+        name = document.getElementById('name').value; // 이름 저장
 
-titleBtn.addEventListener('click', () => {
-    titleContainer.style.display = 'none';
-    questionContainer.style.display = 'block';
-    updateQuestion();
-});
+        // 성별 저장
+        for (let i = 0; i < 2; i++) {
+            if (document.getElementsByName("gender")[i].checked == true) {  // 체크되어 있다면
+                gender = document.getElementsByName("gender")[i].value; // 체크된 값 성별에 저장
+                break;
+            }
+        }
 
-aBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'EI':
-            let e = parseInt(EI.value);
-            EI.setAttribute('value', e + 1);
-            break;
-        case 'SN':
-            let s = parseInt(SN.value);
-            SN.setAttribute('value', s + 1);
-            break;
-        case 'TF':
-            let t = parseInt(TF.value);
-            TF.setAttribute('value', t + 1);
-            break;
-        case 'JP':
-            let j = parseInt(JP.value);
-            JP.setAttribute('value', j + 1);
-            break;
+        titleContainer[0].style.display = 'none';
+        titleContainer[1].style.display = 'none';
+        questionContainer.style.display = 'block';
+        
+        updateQuestion();
     }
+}
+
+yBtn.addEventListener('click', ()=>{
+    countYes++;
+    updateQuestion()
+});
+
+nBtn.addEventListener('click', ()=>{
     updateQuestion();
 });
 
-bBtn.addEventListener('click', () => {
-    updateQuestion();
-});
-
-function updateQuestion() {
+function updateQuestion() { // Example 1~5 하, 6~10 중, 11~13 상
     if (num == 13) {
         questionContainer.style.display = 'none';
-        resultContainer.style.display = 'block';
+        resultContainer.style.display = "block";
 
-    }
-    else {
-        // pro.setAttribute();
+        countYes >= 11 ? show_result("upper") : 11 > countYes >= 6 ? show_result("middle") : show_result("lower")
+    } else {
+        progress.setAttribute('style', `width : calc(100/13*${num}%)`);
         question.innerHTML = q[num].title;
-        type.innerHTML = q[num].type;
-        aBtn.innerHTML = q[num].A;
-        bBtn.innerHTML = q[num].B;
+        contents.innerHTML = q[num].contents;
         num++;
     }
+}
+
+function show_result(answer) {
+    image.setAttribute('src', result[answer].img); 
+    resultType.innerHTML = `${name}님은 ${result[answer].pos + gender}입니다.`; 
+    explain.innerHTML = result[answer].explain;
+}
+
+function prevent_multi_check(n) {
+    let obj = document.getElementsByName("gender");
+    for (let i=0; i < obj.length; i++)
+        if (obj[i] != n)
+            obj[i].checked = false;
+}
+
+function open_result() {
+    document.getElementsByClassName("end_question")[0].style.display = 'none'
+    document.getElementsByClassName("result_container")[0].style.display = 'block'
 }
