@@ -2,6 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .cont {
@@ -20,8 +21,9 @@ body {
     align-items: center;
 }
 
+
 .question-container {
-    /* display: none; */
+    display: none;
     display: flex;
     justify-content: center;
 }
@@ -40,6 +42,12 @@ body {
     height: 5rem;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 .btn:hover {
     background-color: #00387A;
     color: white;
@@ -50,11 +58,11 @@ body {
     display: flex;
     flex-direction: column;
     bottom: 5%;
-    /* display: none; */
+    display: none;
 }
 
 .result-container {
-    /* display: none; */
+    display: none;
     display: flex;
     justify-content: center;
 }
@@ -64,5 +72,5 @@ body {
 }
 
 #type {
-    /* display: none; */
+    display: none;
 }
