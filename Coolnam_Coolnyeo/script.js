@@ -50,7 +50,7 @@ const q = {
     11: { "title": "문제 11번", 
         "body":"애인이 이성 직장 동료를 조수석에 태우고 날 만나러 온다면?", 
         "A": "괜찮다", "B": "안괜찮다" },
-    12: { "title": "문제 12번", 
+    12: { "title": "문제 12번",
         "body":"내 애인의 남사친(여사친)이 알고보니 전남친(전여친) 관계였다면?", 
         "A": "괜찮다", "B": "안괜찮다" },
     13: { "title": "문제 13번", 
@@ -72,10 +72,9 @@ const result = {
     0:{"person":"0%", "explain":"당신은 0% 쿨남, 쿨녀입니다"}//0~2
 }
 
+//let qNum; 현재 문제번호
 
 let num = 1;
-
-// 여기까지만 사전 제공
 
 titleBtn.addEventListener('click', () => {
     titleContainer.style.display = 'none';
@@ -83,25 +82,9 @@ titleBtn.addEventListener('click', () => {
     updateQuestion();
 });
 
+let score;
 aBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'EI':
-            let e = parseInt(EI.value);
-            EI.setAttribute('value', e + 1);
-            break;
-        case 'SN':
-            let s = parseInt(SN.value);
-            SN.setAttribute('value', s + 1);
-            break;
-        case 'TF':
-            let t = parseInt(TF.value);
-            TF.setAttribute('value', t + 1);
-            break;
-        case 'JP':
-            let j = parseInt(JP.value);
-            JP.setAttribute('value', j + 1);
-            break;
-    }
+    score++;
     updateQuestion();
 });
 
@@ -113,9 +96,36 @@ function updateQuestion() {
     if (num == 16) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
+        switch(score){
+            case score>12 :
+                person.innerHTML = result[100].person;
+                explain.innerHTML = result[100].explain;
+                // image.setAttribute('src', result[100].img);
+                break;
+            case 12>score && score>9 :
+                person.innerHTML = result[80].person;
+                explain.innerHTML = result[80].explain;
+                // image.setAttribute('src', result[80].img);
+                break;
+            case 9>score && score>6 :
+                person.innerHTML = result[50].person;
+                explain.innerHTML = result[50].explain;
+                // image.setAttribute('src', result[50].img);
+                break;
+            case 6>score && score>3 :
+                person.innerHTML = result[25].person;
+                explain.innerHTML = result[25].explain;
+                // image.setAttribute('src', result[25].img);
+                break;
+            case 3>score :
+                person.innerHTML = result[0].person;
+                explain.innerHTML = result[0].explain;
+                // image.setAttribute('src', result[0].img);
+                break;
+        }
 
     }
-    else {
+    else { // 수정 필요
         // pro.setAttribute();
         question.innerHTML = q[num].title;
         body.innerHTML = q[num].body;
@@ -124,3 +134,4 @@ function updateQuestion() {
         num++;
     }
 }
+
