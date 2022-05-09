@@ -5,10 +5,8 @@ const question = document.querySelector('#question');
 const type = document.querySelector('#type');
 const aBtn = document.querySelector("#a");
 const bBtn = document.querySelector('#b');
-<<<<<<< HEAD
+
 // St1~5 : 학년
-=======
->>>>>>> refs/remotes/origin/main
 const St1 = document.querySelector('#St1');
 const St2 = document.querySelector('#St2');
 const St3 = document.querySelector("#St3");
