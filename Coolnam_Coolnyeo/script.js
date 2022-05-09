@@ -72,6 +72,8 @@ const result = { // 이거 작성 -> 5개로 작성(?)
     0:{}//0~2
 }
 
+//let qNum; 현재 문제번호
+
 let num = 1;
 
 titleBtn.addEventListener('click', () => {
@@ -80,9 +82,9 @@ titleBtn.addEventListener('click', () => {
     updateQuestion();
 });
 
-let qnum;
+let score;
 aBtn.addEventListener('click', () => {
-    qnum++;
+    score++;
     updateQuestion();
 });
 
@@ -94,6 +96,33 @@ function updateQuestion() {
     if (num == 16) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
+        switch(score){
+            case score>12 :
+                person.innerHTML = result[100].person;
+                explain.innerHTML = result[100].explain;
+                // image.setAttribute('src', result[100].img);
+                break;
+            case 12>score && score>9 :
+                person.innerHTML = result[80].person;
+                explain.innerHTML = result[80].explain;
+                // image.setAttribute('src', result[80].img);
+                break;
+            case 9>score && score>6 :
+                person.innerHTML = result[50].person;
+                explain.innerHTML = result[50].explain;
+                // image.setAttribute('src', result[50].img);
+                break;
+            case 6>score && score>3 :
+                person.innerHTML = result[25].person;
+                explain.innerHTML = result[25].explain;
+                // image.setAttribute('src', result[25].img);
+                break;
+            case 3>score :
+                person.innerHTML = result[0].person;
+                explain.innerHTML = result[0].explain;
+                // image.setAttribute('src', result[0].img);
+                break;
+        }
 
     }
     else { // 수정 필요
