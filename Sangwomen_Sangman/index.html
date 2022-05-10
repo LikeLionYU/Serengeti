@@ -16,8 +16,8 @@
 
     <div class = "start"> <!-- 첫 화면 -->
         
-        <h1 class="head1 mt-5 text-center" > 상남자 상여자 테스트</h1>
-        <h2 class="head2 text-center">과연 당신b? </h2>
+        <h1 class="head1 mt-5 text-center" > 상남자 상여자 <br> 테스트</h1>
+        <h2 class="head2 text-center">과연 당신은? </h2>
         <img  class = "start_img mt-5" src = "src/nohongchul.png" >    
     </div>
 
@@ -27,8 +27,9 @@
                 <span style = "font-size: 20px; font-weight: bold;">이름:<span> 
                 <input id="name" class = "input_name" type ="text" name = "my_name" size="20">
             </div>
+            
             <div>
-                <span style = "font-size: 20px; font-weight: bold;">성별:</span>
+                <span style = "font-size: 20px; font-weight: bold; ">성별:</span>
                 <input id="btn1" type ="checkbox" name="gender" value="남자" onclick="prevent_multi_check(this)">
                 <label for="btn1"></label><span style="font-size: 30px; font-weight: bold; color:skyblue;">남자</span>
                 <input id="btn2" type ="checkbox" name="gender" value="여자" onclick="prevent_multi_check(this)">
@@ -43,6 +44,7 @@
         <div class="progress mt-5">
             <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
         </div>
+        <img  class = "question_img mt-5" src = "#" >
         <h3 class="question_logo">Q.</h3>
         <p id="question" class="question">질문</p>
         <div class="progress-bar" style="width: calc(100/12*1%)"></div><!-- 클릭시 바 active -->
@@ -54,8 +56,8 @@
     </div> 
         
     <div class="end_question">
-        <button class="result_btn" onclick="open_result()"><img src="src/end.png"></button>
-        <p class="btn_ment">누르시오</p>
+        <img class="result_btn" src="src/end.png" onclick="open_result()">
+        <p class="btn_ment">당신의 성향은?</p>
     </div>
 
     <div class="cont result_container"><!-- 결과 화면 -->
@@ -65,6 +67,8 @@
         <div class="result">
             <p class="result_show">당신은 ~입니다</p>
             <p class="explain">a</p>
+            <p class="feature_title">&lt;특징&gt;</p>
+            <p class="feature">a</p>
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>

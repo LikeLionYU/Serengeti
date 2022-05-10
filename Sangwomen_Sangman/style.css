@@ -13,8 +13,6 @@ body{
     text-align: center;
 }
 
-
-
 .logo{
     margin-top: 1%;
     text-align: center;
@@ -80,22 +78,23 @@ input.input_name{  /*이름 input*/
 }
 
 label { /*남녀선택 체크박스*/
+    margin-top: 7%;
     width: 40px;
     height: 40px;
     border: 5px solid #3d0b7ae3;
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-  }
+}
   
-  input[type="checkbox"]:checked + label {
+input[type="checkbox"]:checked + label {
     border-color: rgb(46, 186, 46);
   }
 
   input[type="checkbox"] {
     display: none;
   }
-  
+
   
 .cont{
     width : 100%;
@@ -146,19 +145,19 @@ label { /*남녀선택 체크박스*/
 }
 
 .answer-1_btn{/* yes 버튼 */
-    margin:50px;
+    margin: auto;
     background-color: crimson;
     padding: 10px 30px;
-    font-size:30px;
+    font-size:20px;
     color: white;
     font-weight: bold;
     border-radius: 20px;
 }
 .answer-2_btn{/* no 버튼 */
-    margin:50px;
+    margin:auto;
     background-color: crimson;
     padding: 10px 30px;
-    font-size:30px;
+    font-size:20px;
     color: white;
     font-weight: bold;
     border-radius: 20px;
@@ -170,23 +169,23 @@ label { /*남녀선택 체크박스*/
     text-align: center;
     transition: all 0.2s linear;
 }
-.end_question>button:active{/*결과 버튼 눌렀을때 효과 나옴 */
+
+.end_question>img:active{/*결과 버튼 눌렀을때 효과 나옴 */
     box-shadow:3px 3px 0 rgb(0,0,0,0.5);
-    position:relative;
+    /* position:relative; */
+    border:none;
     top:10px;
 }
-.end_question>button:hover{/* 마우스 버튼에 올린 경우 효과 */
+.end_question>img:hover{/* 마우스 버튼에 올린 경우 효과 */
     transform: scale(1.2);
-    box-shadow:1px 1px 0 rgb(0,0,0,0.5);
-    position:relative;
+    /* position:relative; */
+    border:none;
     top:10px;
-}
+} 
 .result_btn{/* 결과 확인 버튼 */
-    background-color: white;
-    border-radius: 20px;
     padding-left: 10px;
-    width:250px;
-    height:250px;
+    width:300px;
+    height:200px;
 }
 .btn_ment{/* 누르시오 멘트 */
     font-size: 50px;
@@ -194,8 +193,6 @@ label { /*남녀선택 체크박스*/
     font-weight: bold;
     margin-top: 50px;
 }
-
-
 
 .result_container{
     display:none;
@@ -216,6 +213,33 @@ label { /*남녀선택 체크박스*/
     font-weight: bold;
 }
 
+.feature_title {
+    text-align: center;
+}
+
 @media screen and (max-width:768px){
-    
+    .input{
+        margin-top:100px;
+    }
+    .question_logo{
+        font-size:15px;
+    }
+    .question{
+        font-size:20px;
+        margin-top:50px;
+    }
+    .answer-1_btn{
+        margin:10px;
+        font-size:18px ;
+    }
+    .answer-2_btn{
+        margin:10px;
+        font-size:18px ;
+    }
+    .btn_ment{
+        font-size:40px;
+    }
+    .result_show{
+        font-size:40px;
+    }
 }
