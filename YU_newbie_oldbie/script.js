@@ -151,9 +151,9 @@ function updateQuestion() {
         resultContainer.style.display = 'block';
 
         if(oldbie.value<=4){ result_grade = "first_grade"}
-        else if(4<oldbie.value<=7){ result_grade = "second_grade"}
-        else if(7<oldbie.value<=10){ result_grade = "third_grade"}
-        else if(10<oldbie.value<=13){ result_grade = "fourth_grade"}
+        else if(oldbie.value<=7){ result_grade = "second_grade"}
+        else if(oldbie.value<=10){ result_grade = "third_grade"}
+        else if(oldbie.value<=13){ result_grade = "fourth_grade"}
         else{result_grade = "fifth_grade"}
         
         grade.innerHTML = result[result_grade].person;
