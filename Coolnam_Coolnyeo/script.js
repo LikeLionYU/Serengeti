@@ -82,7 +82,7 @@ titleBtn.addEventListener('click', () => {
     updateQuestion();
 });
 
-let score;
+let score =0;
 aBtn.addEventListener('click', () => {
     score++;
     updateQuestion();
@@ -96,35 +96,34 @@ function updateQuestion() {
     if (num == 16) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
-        switch(score){
-            case score>12 :
+            if (score>12){
                 person.innerHTML = result[100].person;
                 explain.innerHTML = result[100].explain;
                 // image.setAttribute('src', result[100].img);
-                break;
-            case 12>score && score>9 :
-                person.innerHTML = result[75].person;
-                explain.innerHTML = result[75].explain;
-                // image.setAttribute('src', result[75].img);
-                break;
-            case 9>score && score>6 :
-                person.innerHTML = result[50].person;
+
+            }
+                
+            else if (12>score && score>9){
+                person.innerHTML = result[80].person;
+                explain.innerHTML = result[80].explain;
+                // image.setAttribute('src', result[80].img);
+            }
+            else if (9>score && score>6)
+                {person.innerHTML = result[50].person;
                 explain.innerHTML = result[50].explain;
                 // image.setAttribute('src', result[50].img);
-                break;
-            case 6>score && score>3 :
+                }
+            else if (6>score && score>3){
                 person.innerHTML = result[25].person;
                 explain.innerHTML = result[25].explain;
                 // image.setAttribute('src', result[25].img);
-                break;
-            case 3>score :
+                }
+            else{ 
                 person.innerHTML = result[0].person;
                 explain.innerHTML = result[0].explain;
                 // image.setAttribute('src', result[0].img);
-                break;
+                }
         }
-
-    }
     else { // 수정 필요
         pro.setAttribute('style', `width : calc(100/15*${num}%);`);
         question.innerHTML = q[num].title;
