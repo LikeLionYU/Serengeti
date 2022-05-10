@@ -82,7 +82,7 @@ titleBtn.addEventListener('click', () => {
     updateQuestion();
 });
 
-let score;
+let score =0;
 aBtn.addEventListener('click', () => {
     score++;
     updateQuestion();
