@@ -10,7 +10,8 @@ const bBtn = document.querySelector('#b');
 const oldbie = document.querySelector('#oldbie');
 const newbie = document.querySelector('#newbie');
 
-const grade=document.querySelector('#grade');
+let grade=document.querySelector('#grade');
+
 const pro = document.querySelector('.progress-bar');
 const ONresult = document.querySelector('#ONresult');
 const explain = document.querySelector('#explain');
@@ -114,39 +115,40 @@ let num = 1;
 titleBtn.addEventListener('click', () => {
     titleContainer.style.display = 'none';
     questionContainer.style.display = 'block';
+    
     updateQuestion();
 });
 
 aBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'oldbie':
-            let o = parseInt(oldbie.value);
-            oldbie.setAttribute('value', o + 1);
-            break;
-        case 'newbie':
-            let n = parseInt(newbie.value);
-            newbie.setAttribute('value', n + 1);
-            break;
+
+    if(num==17){
+        let n = parseInt(newbie.value);
+        newbie.setAttribute('value', n + 1);
     }
+    else{
+        let o = parseInt(oldbie.value);
+        oldbie.setAttribute('value', o + 1);
+    }
+
     updateQuestion();
 });
 
 bBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'oldbie':
-            let o = parseInt(oldbie.value);
-            oldbie.setAttribute('value', o + 1);
-            break;
-        case 'newbie':
-            let n = parseInt(newbie.value);
-            newbie.setAttribute('value', n + 1);
-            break;
+    
+    if(num==17){
+        let o = parseInt(oldbie.value);
+        oldbie.setAttribute('value', o + 1);
     }
+    else{
+        let n = parseInt(newbie.value);
+        newbie.setAttribute('value', n + 1);    
+    }
+
     updateQuestion();
 });
 
 function updateQuestion() { 
-    if (num == 16) {
+    if (num == 17) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
 
