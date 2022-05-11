@@ -14,6 +14,7 @@ const MBTI = document.querySelector('#mbti');
 const explain = document.querySelector('#explain');
 const image = document.querySelector('#result-img');
 const resultContainer = document.querySelector('.result-container');
+const qNum =document.querySelector('#qNum');
 
 //qNum 
 const q = {
@@ -102,17 +103,17 @@ function updateQuestion() {
                 // image.setAttribute('src', result[100].img);
             }
                 
-            else if (12>score && score>9){
+            else if (score>9){
                 person.innerHTML = result[80].person;
                 explain.innerHTML = result[80].explain;
                 // image.setAttribute('src', result[80].img);
             }
-            else if (9>score && score>6)
+            else if (score>6)
                 {person.innerHTML = result[50].person;
                 explain.innerHTML = result[50].explain;
                 // image.setAttribute('src', result[50].img);
                 }
-            else if (6>score && score>3){
+            else if (score>3){
                 person.innerHTML = result[25].person;
                 explain.innerHTML = result[25].explain;
                 // image.setAttribute('src', result[25].img);
@@ -129,6 +130,7 @@ function updateQuestion() {
         body.innerHTML = q[num].body;
         aBtn.innerHTML = q[num].A;
         bBtn.innerHTML = q[num].B;
+        qNum.innerHTML = `${num}/15`;
         num++;
     }
 }
