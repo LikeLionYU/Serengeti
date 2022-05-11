@@ -10,7 +10,8 @@ const bBtn = document.querySelector('#b');
 const oldbie = document.querySelector('#oldbie');
 const newbie = document.querySelector('#newbie');
 
-const grade=document.querySelector('#grade');
+let grade=document.querySelector('#grade');
+
 const pro = document.querySelector('.progress-bar');
 const ONresult = document.querySelector('#ONresult');
 const explain = document.querySelector('#explain');
@@ -114,6 +115,7 @@ let num = 1;
 titleBtn.addEventListener('click', () => {
     titleContainer.style.display = 'none';
     questionContainer.style.display = 'block';
+    
     updateQuestion();
 });
 
@@ -127,8 +129,6 @@ aBtn.addEventListener('click', () => {
         let o = parseInt(oldbie.value);
         oldbie.setAttribute('value', o + 1);
     }
-    console.log(oldbie.value);
-
     updateQuestion();
 });
 
@@ -142,13 +142,11 @@ bBtn.addEventListener('click', () => {
         let n = parseInt(newbie.value);
         newbie.setAttribute('value', n + 1);    
     }
-    console.log(oldbie.value);
-    
     updateQuestion();
 });
 
 function updateQuestion() { 
-    if (num == 16) {
+    if (num == 17) {
         questionContainer.style.display = 'none';
         resultContainer.style.display = 'block';
 

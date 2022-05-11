@@ -1,10 +1,11 @@
-body {
+body{
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
 }
 
-.cont {
+.cont{
     width: 100%;
     height: 100%;
     display: flex;
@@ -12,40 +13,233 @@ body {
     text-align: center;
 }
 
-.title-container {
+.logo{
+    margin-top: 1%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+
+.start{  /*첫 화면 div*/
+    
+    margin:auto;
+}
+
+.head1{  /*상남자 상여자 테스트*/
+    font-size: 40px;
+    color: #3d0b7ae3;
+    font-weight: bold;
+}
+
+.head2{  /*과연 당신은?*/
+    font-size: 25px;
+    color: black;
+}
+
+.start_img{  /*노홍철 이미지*/
+    
+    display: block;
     margin: auto;
-    background-color: gray;
+    border-radius: 10px;
+    width: 90%;
+    height: 50%; 
+    
+    
+}
+
+
+.btn-purple{  /*테스트 시작하기 버튼*/
+    display: block;
+    background-color: #3d0b7ae3;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin:auto;
+
+}
+
+.input{  /*이름 성별 입력 div*/
+    margin:auto;
+}
+
+input.input_name{  /*이름 input*/
+    width:150px;
+    height:40px;
+    color:darkblue;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+
+}
+
+label { /*남녀선택 체크박스*/
+    margin-top: 7%;
+    width: 40px;
+    height: 40px;
+    border: 5px solid #3d0b7ae3;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+  
+input[type="checkbox"]:checked + label {
+    border-color: rgb(46, 186, 46);
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  
+.cont{
+    width : 100%;
+    height : 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
-.question-container {
+.question_container{/* 질문 박스 */
+    display:none; 
+    
+}
+.question_logo{/* 질문 로고 */
+    margin-top: 80px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.question{/* 질문 */
+    margin-top: 100px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+.answer_box{/* 질문 답 버튼: yes, no */
+    width: 100%;
+    margin: auto;
+    flex-direction: row;
+    text-align: center;
+}
+
+.answer_box>button:hover{/* 마우스 버튼에 올린 경우 효과 */
+    background-color:black;
+    color:white;
+    box-shadow:1px 1px 0 rgb(0,0,0,0.5);
+    position:relative;
+    top:2px;
+}
+.answer_box>button:active{/* 버튼 눌렀을때 효과 */
+    box-shadow:1px 1px 0 rgb(0,0,0,0.5);
+    position:relative;
+    top:2px;
+}
+
+.answer-1_btn{/* yes 버튼 */
+    margin: auto;
+    background-color: crimson;
+    padding: 10px 30px;
+    font-size:20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.answer-2_btn{/* no 버튼 */
+    margin:auto;
+    background-color: crimson;
+    padding: 10px 30px;
+    font-size:20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.end_question{
     display: none;
+    margin:auto;
+    text-align: center;
+    transition: all 0.2s linear;
 }
 
-.btn {
-    width: 300px;
-    margin: 10px;
+.end_question>img:active{/*결과 버튼 눌렀을때 효과 나옴 */
+    box-shadow:3px 3px 0 rgb(0,0,0,0.5);
+    /* position:relative; */
+    border:none;
+    top:10px;
+}
+.end_question>img:hover{/* 마우스 버튼에 올린 경우 효과 */
+    transform: scale(1.2);
+    /* position:relative; */
+    border:none;
+    top:10px;
+} 
+.result_btn{/* 결과 확인 버튼 */
+    padding-left: 10px;
+    width:300px;
+    height:200px;
+}
+.btn_ment{/* 누르시오 멘트 */
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
+    margin-top: 50px;
 }
 
-.score-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    bottom: 5%;
-    display: none;
+.result_container{
+    display:none;
+    text-align: center;
+    margin:auto;
 }
 
-.result-container {
-    display: none;
+.result_img{
+    text-align: center;
+    width:200px;
+    height:200px;
+    border-radius: 50px;
+}
+.result_show{
+    margin-top:100px;
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
 }
 
-#result-img {
-    width: 50%;
+.feature_title {
+    text-align: center;
 }
 
-#type {
-    display: none;
+@media screen and (max-width:768px){
+    .input{
+        margin-top:100px;
+    }
+    .question_logo{
+        font-size:15px;
+    }
+    .question{
+        font-size:20px;
+        margin-top:50px;
+    }
+    .answer-1_btn{
+        margin:10px;
+        font-size:18px ;
+    }
+    .answer-2_btn{
+        margin:10px;
+        font-size:18px ;
+    }
+    .btn_ment{
+        font-size:40px;
+    }
+    .result_show{
+        font-size:40px;
+    }
 }
