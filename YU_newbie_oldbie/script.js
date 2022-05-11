@@ -118,30 +118,32 @@ titleBtn.addEventListener('click', () => {
 });
 
 aBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'oldbie':
-            let o = parseInt(oldbie.value);
-            oldbie.setAttribute('value', o + 1);
-            break;
-        case 'newbie':
-            let n = parseInt(newbie.value);
-            newbie.setAttribute('value', n + 1);
-            break;
+
+    if(num==17){
+        let n = parseInt(newbie.value);
+        newbie.setAttribute('value', n + 1);
     }
+    else{
+        let o = parseInt(oldbie.value);
+        oldbie.setAttribute('value', o + 1);
+    }
+    console.log(oldbie.value);
+
     updateQuestion();
 });
 
 bBtn.addEventListener('click', () => {
-    switch (type.innerHTML) {
-        case 'oldbie':
-            let o = parseInt(oldbie.value);
-            oldbie.setAttribute('value', o + 1);
-            break;
-        case 'newbie':
-            let n = parseInt(newbie.value);
-            newbie.setAttribute('value', n + 1);
-            break;
+    
+    if(num==17){
+        let o = parseInt(oldbie.value);
+        oldbie.setAttribute('value', o + 1);
     }
+    else{
+        let n = parseInt(newbie.value);
+        newbie.setAttribute('value', n + 1);    
+    }
+    console.log(oldbie.value);
+    
     updateQuestion();
 });
 
