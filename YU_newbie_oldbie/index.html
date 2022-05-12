@@ -13,33 +13,37 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-</head>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet"></head>
 
 <body class="container">
     <div class="cont title-container">
-        <h1 style="color:#00387A; font-weight:bold;">영남대학교<br>올드비, 뉴비 테스트</h1>
-        <h3 style="color:#404040">나는 영남대 새내기일까, 화석일까?</h3>
-        <button id="startBtn" class="btn">시작하기</button>
+        <h1 style="font-size:130px;">👦🏻👧🏻👵🏻👴🏻</h1>
+        <h1 style="color:#00387A">영남대학교 올드비 뉴비 테스트</h1>
+        <h3 style="color:#404040">나는 영남대 새내기일까 화석일까?</h3>
+        <button id="startBtn" class="btn">테스트 시작!</button>
     </div>
-
     <div class="cont question-container">
-        <h3 id="question_title" class="mt-5" style="color:#404040">질문</h3>
-        <h3 id="question_content"></h3>
+        <h1 id="question_title" class="mt-5">질문</h1>
+        <div id="question_contents">
+            <h3 id="question_content"></h3>
+        </div>
         <div class="buttons">
             <button id="a" class="btn">1</button>
             <button id="b" class="btn">2</button>
         </div>
-        <div class="progress mt-5">
+        <div class="progress mt-3">
             <div class="progress-bar" role="progressbar" style="width: calc(100/16*1%)"></div>
         </div>
     </div>
     <div class="cont result-container">
         <h4 id="result_title" style = "color:#707070">나의 정체는</h4>
-        <h3 id="grade">GRADE</h3>
-        <p id="explain">설명</p>
+        <h1 id="grade" style="color:#00387A">GRADE</h1>
         <img id="result-img" src="" alt="">
+        <div id="explains">
+            <p id="explain">설명</p>
+        </div>
+        
 
     </div>
 
