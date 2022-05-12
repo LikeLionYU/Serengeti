@@ -1,51 +1,259 @@
-body {
+* {
+    font-family: 'Jua', sans-serif;
+    /* font-family: 'Poor Story', cursive; */
+  }
+  body {
     width: 100vw;
     height: 100vh;
     display: flex;
-}
-
-.cont {
+    background: #ee9ca7; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom,
+      #ffdde1,
+      #ee9ca7
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #ffdde1,
+      #ee9ca7
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    justify-content: center;
+    padding: 0 30px;
+  }
+  
+  .cont {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
-}
-
-.title-container {
+    max-width: 1024px;
+    z-index: 1000;
+  }
+  
+  .title-container {
     margin: auto;
-    background-color: gray;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.question-container {
+  }
+  .title-container h1 {
+    font-size: 3rem;
+    animation: scaleBounce 2s linear 0s infinite;
+  }
+  
+  .question-container {
     display: none;
-}
-
-.btn {
-    width: 300px;
+  }
+  
+  .btn {
+    background: #ffffff52;
+    min-width: 450px;
     margin: 10px;
-}
-
-.score-container {
+    border-radius: 17px;
+  }
+  
+  .score-container {
     position: absolute;
     display: flex;
     flex-direction: column;
     bottom: 5%;
     display: none;
-}
-
-.result-container {
+  }
+  
+  .result-container {
     display: none;
-}
-
-#result-img {
+  }
+  #question {
+    height: 80px;
+    margin-top: 150px;
+  }
+  
+  #some {
+    font-size: 3rem;
+  }
+  
+  #result-img {
     width: 50%;
-}
-
-#type {
+  }
+  
+  #type {
     display: none;
-}
+  }
+  
+  #btn-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #btn-box button {
+    height: 100px;
+    font-size: 1.2rem;
+  }
+  
+  .result-box {
+    margin-top: 90px;
+  }
+  
+  #lyrics {
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #414141;
+  }
+  
+  #explain {
+    max-width: 860px;
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+  
+  #startBtn {
+    color: #ee9da8;
+    background: #ffffff52;
+    min-width: 200px;
+  }
+  
+  #startBtn:hover {
+    background: white;
+  }
+  
+  .progress-bar {
+    background-color: #ff62a1;
+  }
+  
+  .cloud-container {
+    position: absolute;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+  }
+  .clouds {
+    position: relative;
+    overflow: visible;
+    top: 10vw;
+  }
+  
+  .cloud {
+    width: 30vw;
+    height: 10vw;
+    background: white;
+    border-radius: 100px;
+    position: absolute;
+  }
+  
+  .cloud:before,
+  .cloud:after {
+    content: '';
+    overflow: visible;
+    position: absolute;
+    background: white;
+    top: -10vw;
+    left: 6vw;
+    width: 18vw;
+    height: 18vw;
+    border-radius: 50%;
+  }
+  
+  .x1 {
+    top: 20vh;
+    animation: moveclouds 15s linear infinite;
+  }
+  
+  .x2 {
+    top: 40vh;
+    left: 10vw;
+    transform: scale(0.6);
+    opacity: 0.6;
+    animation: moveclouds 25s linear infinite;
+  }
+  
+  .x3 {
+    left: 50vw;
+    top: 60vh;
+    transform: scale(0.8);
+    opacity: 0.8;
+    animation: moveclouds 20s linear infinite;
+  }
+  
+  .x4 {
+    left: 15vw;
+    top: 70vh;
+    transform: scale(0.75);
+    opacity: 0.75;
+    animation: moveclouds 18s linear infinite;
+  }
+  
+  .question-box {
+    margin-top: 50px;
+  }
+  
+  .x5 {
+    left: 30vw;
+    top: 80vh;
+    transform: scale(0.8);
+    opacity: 0.8;
+    animation: moveclouds 20s linear infinite;
+  }
+  
+  .bounce {
+    top: 50vh;
+    left: 50%;
+    opacity: 0.8;
+    animation: bounce 2s linear infinite;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translate(-50%, -40px);
+    }
+    50% {
+      transform: translate(-50%, 0px);
+    }
+    100% {
+      transform: translate(-50%, -40px);
+    }
+  }
+  
+  @keyframes moveclouds {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translate(-50%, -40px);
+    }
+    50% {
+      transform: translate(-50%, 0px);
+    }
+    100% {
+      transform: translate(-50%, -40px);
+    }
+  }
+  
+  @keyframes moveclouds {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+  
+  @keyframes scaleBounce {
+    0% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }

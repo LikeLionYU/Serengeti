@@ -129,7 +129,6 @@ aBtn.addEventListener('click', () => {
         let o = parseInt(oldbie.value);
         oldbie.setAttribute('value', o + 1);
     }
-
     updateQuestion();
 });
 
@@ -143,7 +142,6 @@ bBtn.addEventListener('click', () => {
         let n = parseInt(newbie.value);
         newbie.setAttribute('value', n + 1);    
     }
-
     updateQuestion();
 });
 
